@@ -1,1 +1,1 @@
-{"mappings":"AAAA;CAAuB","sources":["src/src/index.ts","src/index.ts"],"sourcesContent":[null,"export class DotGrid {}"],"names":[],"version":3,"file":"types.d.ts.map"}
+{"mappings":"AAAA;CAAuB","sources":["src/src/index.ts","src/index.ts"],"sourcesContent":[null,"export class DotGrid {}"],"names":[],"version":3,"file":"types.d.ts.map","sourceRoot":"../"}
