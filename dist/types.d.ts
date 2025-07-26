@@ -1,5 +1,9 @@
+interface DotOptions {
+    size: number;
+    color: string;
+}
 export const DotGrid: {
-    draw: () => void;
+    draw: (id: string, dotOptions?: DotOptions) => void;
 };
 
 //# sourceMappingURL=types.d.ts.map
