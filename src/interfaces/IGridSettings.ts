@@ -1,4 +1,4 @@
-export interface IGridSettings {
+export interface GridSettings {
     width: number,
     height: number
 }
