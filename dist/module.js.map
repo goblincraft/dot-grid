@@ -1,1 +1,1 @@
-{"mappings":"AAAO,MAAM;AAAS","sources":["src/index.ts"],"sourcesContent":["export class DotGrid {}"],"names":[],"version":3,"file":"module.js.map"}
+{"mappings":"AAAO,MAAM,4CAAU,AAAC,CAAA;IAEpB,SAAS;QACL,QAAQ,GAAG,CAAC;IAChB;IAEA,OAAO;QACH,MAAM;IACV;AAEJ,CAAA","sources":["src/index.ts"],"sourcesContent":["export const DotGrid = (() => {\n\n    function draw() {\n        console.log(\"draw\");\n    }\n\n    return {\n        draw: draw\n    }\n\n})();"],"names":[],"version":3,"file":"module.js.map","sourceRoot":"../"}
