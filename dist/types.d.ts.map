@@ -1,1 +1,1 @@
-{"mappings":"AAAA;CAAuB","sources":["src/src/index.ts","src/index.ts"],"sourcesContent":[null,"export class DotGrid {}"],"names":[],"version":3,"file":"types.d.ts.map","sourceRoot":"../"}
+{"mappings":"AAAA,OAAO,MAAM;;CAUT,CAAC","sources":["src/src/index.ts","src/index.ts"],"sourcesContent":[null,"export const DotGrid = (() => {\n\n    function draw() {\n        console.log(\"draw\");\n    }\n\n    return {\n        draw: draw\n    }\n\n})();"],"names":[],"version":3,"file":"types.d.ts.map","sourceRoot":"../"}
