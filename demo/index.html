@@ -8,6 +8,19 @@
   <body>
     <div class="app-wrapper">
       <canvas id="dot-grid"></canvas>
+      <div id="dot-grid-controls">
+        <div id="dot-grid-controls-header">
+          <p>Dot Grid Settings</p>
+        </div>
+        <div class="dot-grid-control">
+          <span class="dot-grid-control-label">Color:</span>
+          <input id="dot-color-picker-control" class="dot-color-picker" title="dot-color" type="color" />
+        </div>
+        <div class="dot-grid-control">
+          <span class="dot-grid-control-label">Size:</span>
+          <input id="dot-size-input-control" class="dot-size-input" title="dot-size" type="number" min="1" />
+        </div>
+      </div>
     </div>
     <script type="module" src="./main.js"></script>
   </body>
