@@ -22,7 +22,13 @@ const $882b6d93070905b3$export$2c5f62b7a29dcd9a = (()=>{
     let _gridSettings;
     let _canvas;
     let _ctx;
-    function validateDotOptions(dotOptions) {
+    function _configureGridSettings() {
+        _gridSettings = {
+            width: _canvas.offsetWidth,
+            height: _canvas.offsetHeight
+        };
+    }
+    function _validateDotOptions(dotOptions) {
         const defaultSize = (0, $013767febbe071c6$export$42c47edc575d3e8c).SIZE;
         const defaultColor = (0, $013767febbe071c6$export$42c47edc575d3e8c).COLOR;
         let options = dotOptions;
@@ -34,9 +40,11 @@ const $882b6d93070905b3$export$2c5f62b7a29dcd9a = (()=>{
     }
     function draw(id, dotOptions) {
         const el = document.getElementById(id);
-        _options = validateDotOptions(dotOptions);
-        if (el && el instanceof HTMLCanvasElement) _canvas = el;
-        else throw Error((0, $4e3f74a422b9a616$export$b8e9cd941e8016ac).NO_CANVAS);
+        _options = _validateDotOptions(dotOptions);
+        if (el && el instanceof HTMLCanvasElement) {
+            _canvas = el;
+            _configureGridSettings();
+        } else throw Error((0, $4e3f74a422b9a616$export$b8e9cd941e8016ac).NO_CANVAS);
     }
     return {
         draw: draw
