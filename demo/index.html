@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dot-grid.js demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" type="text/css" />
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <canvas id="dot-grid"></canvas>
+      <div id="dot-grid-controls">
+        <div id="dot-grid-controls-header">
+          <p>Dot Grid Settings</p>
+        </div>
+        <div class="dot-grid-control">
+          <span class="dot-grid-control-label">Color:</span>
+          <input id="dot-color-picker-control" class="dot-input" title="dot-color" type="color" />
+        </div>
+        <div class="dot-grid-control">
+          <span class="dot-grid-control-label">Size:</span>
+          <input id="dot-size-input-control" class="dot-input" title="dot-size" type="number" min="1" />
+        </div>
+        <div class="dot-grid-control">
+          <span class="dot-grid-control-label">Margin:</span>
+          <input id="dot-margin-input-control" class="dot-input" title="dot-size" type="number" min="1" />
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
