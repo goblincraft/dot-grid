@@ -74,6 +74,10 @@ export const DotGrid = (() => {
         _options = options;
     }
 
+    function _clearCanvas() {
+        _ctx.clearRect(0, 0, _canvas.width, _canvas.height);
+    }
+
     function _setupCanvas(el: HTMLCanvasElement) {
         _canvas = el;
         _canvas.width = el.offsetWidth;
@@ -88,6 +92,7 @@ export const DotGrid = (() => {
         if (el && el instanceof HTMLCanvasElement) {
             _validateDotOptions(dotOptions);
             _setupCanvas(el);
+            _clearCanvas();
             _configureGridSettings();
             _computeCellSize();
             _determineNumOfCols();

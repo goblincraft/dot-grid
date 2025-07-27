@@ -71,6 +71,9 @@ const $149c1bd638913645$export$2c5f62b7a29dcd9a = (()=>{
         };
         _options = options;
     }
+    function _clearCanvas() {
+        _ctx.clearRect(0, 0, _canvas.width, _canvas.height);
+    }
     function _setupCanvas(el) {
         _canvas = el;
         _canvas.width = el.offsetWidth;
@@ -84,6 +87,7 @@ const $149c1bd638913645$export$2c5f62b7a29dcd9a = (()=>{
         if (el && el instanceof HTMLCanvasElement) {
             _validateDotOptions(dotOptions);
             _setupCanvas(el);
+            _clearCanvas();
             _configureGridSettings();
             _computeCellSize();
             _determineNumOfCols();
