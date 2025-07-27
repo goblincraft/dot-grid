@@ -5,7 +5,7 @@ function $parcel$export(e, n, v, s) {
 
 $parcel$export(module.exports, "DotGrid", () => $882b6d93070905b3$export$2c5f62b7a29dcd9a);
 var $013767febbe071c6$export$42c47edc575d3e8c = /*#__PURE__*/ function(DefaultDotOptions) {
-    DefaultDotOptions[DefaultDotOptions["SIZE"] = 10] = "SIZE";
+    DefaultDotOptions[DefaultDotOptions["SIZE"] = 5] = "SIZE";
     DefaultDotOptions["COLOR"] = "#000000";
     return DefaultDotOptions;
 }({});
@@ -22,6 +22,44 @@ const $882b6d93070905b3$export$2c5f62b7a29dcd9a = (()=>{
     let _gridSettings;
     let _canvas;
     let _ctx;
+    let _cellWidth;
+    let _cellHeight;
+    let _cols;
+    let _rows;
+    function _computeMargin() {
+        return _options.margin ? _options.margin : _options.size;
+    }
+    function _drawDot(x, y) {
+        _ctx.beginPath();
+        _ctx.arc(x, y, _options.size / 2, 0, Math.PI * 2, true);
+        _ctx.fill();
+    }
+    function _drawGrid() {
+        const margin = _computeMargin();
+        let x = 0;
+        let y = 0;
+        for(let i = 0; i < _rows; i++){
+            if (i === 0) y += margin;
+            else y += margin * 2;
+            x = 0;
+            for(let j = 0; j < _cols; j++){
+                x += margin;
+                _drawDot(x, y);
+                x += margin;
+            }
+        }
+    }
+    function _determineNumOfRows() {
+        _rows = Math.floor(_gridSettings.height / _cellHeight);
+    }
+    function _determineNumOfCols() {
+        _cols = Math.floor(_gridSettings.width / _cellWidth);
+    }
+    function _computeCellSize() {
+        const fullSize = _options.size + _computeMargin() * 2;
+        _cellWidth = fullSize / 2;
+        _cellHeight = fullSize / 1.5;
+    }
     function _configureGridSettings() {
         _gridSettings = {
             width: _canvas.offsetWidth,
@@ -34,16 +72,29 @@ const $882b6d93070905b3$export$2c5f62b7a29dcd9a = (()=>{
         let options = dotOptions;
         if (!options) options = {
             size: defaultSize,
-            color: defaultColor
+            color: defaultColor,
+            margin: defaultSize
         };
-        return options;
+        _options = options;
+    }
+    function _setupCanvas(el) {
+        _canvas = el;
+        _canvas.width = el.offsetWidth;
+        _canvas.height = el.offsetHeight;
+        _ctx = _canvas.getContext("2d");
+        _ctx.fillStyle = _options.color;
+        _ctx.strokeStyle = _options.color;
     }
     function draw(id, dotOptions) {
         const el = document.getElementById(id);
-        _options = _validateDotOptions(dotOptions);
         if (el && el instanceof HTMLCanvasElement) {
-            _canvas = el;
+            _validateDotOptions(dotOptions);
+            _setupCanvas(el);
             _configureGridSettings();
+            _computeCellSize();
+            _determineNumOfCols();
+            _determineNumOfRows();
+            _drawGrid();
         } else throw Error((0, $4e3f74a422b9a616$export$b8e9cd941e8016ac).NO_CANVAS);
     }
     return {

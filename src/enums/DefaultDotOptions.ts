@@ -1,4 +1,4 @@
 export enum DefaultDotOptions {
-    SIZE = 10,
+    SIZE = 5,
     COLOR = "#000000"
 }
