@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const elements = {
         grid: "dot-grid",
         color: "dot-color-picker-control",
-        size: "dot-size-input-control"
+        size: "dot-size-input-control",
+        margin: "dot-margin-input-control"
     }
     let options = {
         size: 5,
@@ -22,9 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
         redrawGrid();
     }
 
+    function listenForMarginInputChanges() {
+        document.getElementById(elements.margin).addEventListener("change", (e) => {
+            updateOptions("margin", parseInt(e.target.value));
+        });
+    }
+
     function listenForSizeInputChanges() {
         document.getElementById(elements.size).addEventListener("change", (e) => {
-            console.log(e.target.value);
             updateOptions("size", parseInt(e.target.value));
         });
     }
@@ -38,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function setDefaults() {
         document.getElementById(elements.color).value = options.color;
         document.getElementById(elements.size).value = options.size;
+        document.getElementById(elements.margin).value = options.margin;
     }
 
     function init() {
@@ -45,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         DotGrid.draw(elements.grid, options);
         listenForColorInputChanges();
         listenForSizeInputChanges();
+        listenForMarginInputChanges();
     }
 
     init();
