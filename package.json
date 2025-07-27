@@ -1,5 +1,5 @@
 {
-  "name": "dot-grid",
+  "name": "@goblincraft/dot-grid",
   "version": "1.0.0-alpha",
   "source": "src/index.ts",
   "main": "dist/main.js",
