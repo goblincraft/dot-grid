@@ -10,7 +10,14 @@ export const DotGrid = (() => {
     let _canvas: HTMLCanvasElement;
     let _ctx: CanvasRenderingContext2D;
 
-    function validateDotOptions(dotOptions?: DotOptions): DotOptions {
+    function _configureGridSettings(): void {
+        _gridSettings = {
+            width: _canvas.offsetWidth,
+            height: _canvas.offsetHeight
+        }
+    }   
+
+    function _validateDotOptions(dotOptions?: DotOptions): DotOptions {
         const defaultSize: number = DefaultDotOptions.SIZE;
         const defaultColor: string = DefaultDotOptions.COLOR;
         let options = dotOptions;
@@ -22,9 +29,10 @@ export const DotGrid = (() => {
 
     function draw(id: string, dotOptions?: DotOptions): void {
         const el = document.getElementById(id);
-        _options = validateDotOptions(dotOptions);
+        _options = _validateDotOptions(dotOptions);
         if (el && el instanceof HTMLCanvasElement) {
             _canvas = el;
+            _configureGridSettings();
         } else {
             throw Error(Errors.NO_CANVAS);
         }

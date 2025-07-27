@@ -1,4 +1,5 @@
 export interface GridSettings {
     width: number,
-    height: number
+    height: number,
+    margin?: number
 }
