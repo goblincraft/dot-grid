@@ -3,6 +3,7 @@ import { DotGrid } from '../dist/module.js';
 document.addEventListener("DOMContentLoaded", () => {
 
     const elements = {
+        grid: "dot-grid",
         color: "dot-color-picker-control",
         size: "dot-size-input-control"
     }
@@ -12,9 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
         margin: 5
     }
 
+    function redrawGrid() {
+        DotGrid.draw(elements.grid, options);
+    }
+
+    function updateOptions(option, value) {
+        options[option] = value;
+        redrawGrid();
+    }
+
+    function listenForSizeInputChanges() {
+        document.getElementById(elements.size).addEventListener("change", (e) => {
+            console.log(e.target.value);
+            updateOptions("size", parseInt(e.target.value));
+        });
+    }
+
     function listenForColorInputChanges() {
         document.getElementById(elements.color).addEventListener("change", (e) => {
-            options.color = e.target.value;
+            updateOptions("color", e.target.value);
         });
     }
 
@@ -25,8 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function init() {
         setDefaults();
-        DotGrid.draw("dot-grid");
+        DotGrid.draw(elements.grid, options);
         listenForColorInputChanges();
+        listenForSizeInputChanges();
     }
 
     init();
