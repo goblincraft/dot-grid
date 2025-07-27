@@ -1,7 +1,7 @@
 {
   "name": "dot-grid",
   "version": "1.0.0",
-  "source": "src/index.js",
+  "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
   "types": "dist/types.d.ts",
@@ -14,6 +14,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "parcel": "^2.15.4"
+    "@parcel/packager-ts": "^2.15.4",
+    "@parcel/transformer-typescript-types": "^2.15.4",
+    "parcel": "^2.15.4",
+    "typescript": "^5.8.3"
   }
 }
